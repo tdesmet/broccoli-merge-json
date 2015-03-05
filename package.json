@@ -1,8 +1,10 @@
 {
   "name": "broccoli-merge-json",
   "version": "0.0.1",
-  "description": "Merge multiple json files into one",
+  "description": "Broccoloi plugin to merge multiple json files into one",
+  "author": "Tom De Smet <tdesmet@gmail.com>",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "test": "tap ./test/*-test.js"
   },
@@ -10,17 +12,17 @@
     "type": "git",
     "url": "https://github.com/tdesmet/broccoli-merge-json"
   },
+  "bugs": {
+    "url": "https://github.com/tdesmet/broccoli-merge-json"
+  },
   "keywords": [
     "broccoli-plugin"
   ],
-  "author": "Tom De Smet",
-  "license": "MIT",
   "dependencies": {
     "broccoli-kitchen-sink-helpers": "^0.2.6",
     "broccoli-writer": "^0.1.1",
     "change-case": "^2.2.0",
-    "mkdirp": "^0.5.0",
-    "symlink-or-copy": "^1.0.1"
+    "mkdirp": "^0.5.0"
   },
   "devDependencies": {
     "broccoli": "^0.13.3",
