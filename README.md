@@ -29,8 +29,9 @@ for example the following directory structure
 /languages/en
 /languages/en/global.json
 /languages/en/header.json
-/languages/components/modal-dialog.json
-/languages/components/date-selector.json
+/languages/en/components.json
+/languages/en/components/modal-dialog.json
+/languages/en/components/date-selector.json
 ```
 
 would result in the following json:
@@ -44,6 +45,7 @@ would result in the following json:
     //contents of header.json
   },
   "components": {
+    //contetns of components.json
     "modalDialog": {
       //contents of modal-dialog.json
     },
