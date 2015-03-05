@@ -45,7 +45,7 @@ would result in the following json:
     //contents of header.json
   },
   "components": {
-    //contetns of components.json
+    //contents of components.json
     "modalDialog": {
       //contents of modal-dialog.json
     },
