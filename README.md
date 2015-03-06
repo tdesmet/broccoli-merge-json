@@ -22,22 +22,25 @@ This would create a .json for each sub directory in `/languages`. Each resulting
 json file would contain the json files in the languages directory or any
 sub directory.
 
-for example the following directory structure
+The following directory structure
 
 ```
-/languages
-/languages/en
-/languages/en/global.json
-/languages/en/header.json
-/languages/en/components.json
-/languages/en/components/modal-dialog.json
-/languages/en/components/date-selector.json
+├─┬ languages
+  └─┬ en
+    ├── index.json
+    ├── global.json
+    ├── header.json
+    ├── components.json
+    └─┬ components
+      ├── modal-dialog.json
+      └── date-selector.json
 ```
 
-would result in the following json:
+would result in the following `en.json`:
 
 ```js
 {
+  // contents of index.json 
   "global": {
     //contents of global.json
   },
