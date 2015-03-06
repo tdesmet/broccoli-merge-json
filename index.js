@@ -17,17 +17,31 @@ function Merger (inputTree, options) {
 
 
 function addObject(currentObject, path, objectToAdd) {
-   var prop = path[0];
+  var prop = path[0];
   prop = changeCase.camel(prop);
 
   if (path.length === 1) {
-    currentObject[prop] = objectToAdd;
+    if (prop.toLowerCase() === "index") {
+      //copy properties from objectToAdd to currentObject
+      Object.keys(objectToAdd).forEach(function(key) {
+        currentObject[key] = objectToAdd[key];
+      });
+    } else {
+      if (typeof(currentObject[prop]) === "object") {
+        //copy properties from objectToAdd to currentObject[prop]
+        var objectToAddTo = currentObject[prop];
+        Object.keys(objectToAdd).forEach(function(key) {
+          objectToAddTo[key] = objectToAdd[key];
+        });
+      } else {
+        currentObject[prop] = objectToAdd;
+      }
+    }
   } else {
     var nextObject = currentObject[prop] || {};
     currentObject[prop] = nextObject;
     addObject(nextObject, path.slice(1), objectToAdd);
   }
-
 }
 
 Merger.prototype.write = function (readTree, destDir) {

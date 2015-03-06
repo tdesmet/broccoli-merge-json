@@ -25,6 +25,7 @@ test('merge files correctly', function(t) {
       }
 
       t.strictDeepEqual(resultEn, {
+        "T001": "Index key",
         "global": {
           "KEY1": "global file key"
         },
