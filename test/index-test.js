@@ -6,17 +6,20 @@ var merger = require('..');
 
 var fixturePath = path.join(__dirname, 'fixtures');
 
+debugger;
+
 test('merge files correctly', function(t) {
+  debugger;
   var tree = merger(fixturePath, {
     srcDir: '/languages',
     destDir: '/foo'
   });
 
   var builder = new Builder(tree);
-  builder.
-    build().
-    then(function(result) {
-      var resultEnFile = path.join(result.directory, 'foo', 'en.json');
+  builder
+    .build()
+    .then(function(result) {
+      var resultEnFile = path.join(builder.outputPath, 'foo', 'en.json');
       var fileEnExists = fs.existsSync(resultEnFile);
       t.ok(fileEnExists, "File en.json exists");
       var resultEn = {};
@@ -43,7 +46,7 @@ test('merge files correctly', function(t) {
         }
       }, "result file has correct json content");
 
-      var resultFrFile = path.join(result.directory, 'foo', 'fr.json');
+      var resultFrFile = path.join(builder.outputPath, 'foo', 'fr.json');
       var fileFrExists = fs.existsSync(resultFrFile);
       t.ok(fileFrExists, "File fr.json exists");
       var resultFr = {};
@@ -78,11 +81,11 @@ test('output should contain two files', function(t) {
   });
 
   var builder = new Builder(tree);
-  builder.
-    build().
-    then(function(result) {
-      t.ok(fs.existsSync(path.join(result.directory, 'foo', 'en.json')), "File en.json exists");
-      t.ok(fs.existsSync(path.join(result.directory, 'foo', 'fr.json')), "File en.json exists");
+  builder
+    .build()
+    .then(function() {
+      t.ok(fs.existsSync(path.join(builder.outputPath, 'foo', 'en.json')), "File en.json exists");
+      t.ok(fs.existsSync(path.join(builder.outputPath, 'foo', 'fr.json')), "File en.json exists");
       t.end();
     });
 });
