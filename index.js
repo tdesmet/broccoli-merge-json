@@ -46,7 +46,7 @@ function addObject(currentObject, path, objectToAdd) {
 }
 
 Merger.prototype.build = function() {
-  var sourcePath = path.join(this.inputPaths[0], this.options.srcDir);
+  var sourcePath = this.inputPaths[0];
   var destPath   = path.join(this.outputPath, this.options.destDir);
 
   if (destPath[destPath.length -1] === '/') {
